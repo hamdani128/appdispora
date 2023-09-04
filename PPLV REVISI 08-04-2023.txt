@@ -1,0 +1,12 @@
+admin : 
+===========
+- update Photo
+- update level user to owner
+- history prestasi
+
+
+Pelatih :
+===========
+- update jenis Kelamin indikator
+- update kategori indikator
+- penyelesaian bug akun fisik
