@@ -9,11 +9,15 @@ use CodeIgniter\Database\Config;
 class Pelatih1Controller extends BaseController
 {
     private $db;
+    private $users;
     public function __construct()
     {
         helper('form');
         helper('url');
         $this->db = Config::connect();
+        $userModel = new UserModel();
+        $loggedUserID = session()->get('loggedUser');
+        $this->users = $userModel->find($loggedUserID);
     }
     public function index()
     {
@@ -21,7 +25,6 @@ class Pelatih1Controller extends BaseController
         $loggedUserID = session()->get('loggedUser');
         $UserInfo = $userModel->find($loggedUserID);
         $atlet = $this->db->table('atlet')->where('cabor', $UserInfo['departemen'])->get()->getResultObject();
-        $indikator_teknik = $this->db->table('indikator_teknik')->where('cabor', $UserInfo['departemen'])->get()->getResultObject();
         $list_cabor = $this->db->table('cabor')->get()->getResultObject();
         $sql_perform = "SELECT
                         a.id as id,
@@ -40,11 +43,25 @@ class Pelatih1Controller extends BaseController
             'userinfo' => $UserInfo,
             'judul' => 'Tes Teknik',
             'atlet' => $atlet,
-            'indikator_teknik' => $indikator_teknik,
             'perfom' => $perform,
             'list_cabor' => $list_cabor,
         ];
         return view('pages/tes_teknik', $data);
+    }
+
+    public function get_periode()
+    {
+        $query = $this->db->table("kategori_indikator_teknik")->get()->getResultObject();
+        return $this->response->setJSON($query);
+    }
+
+    public function get_benchmark()
+    {
+        $periode = $this->request->getPost("periode");
+        $jk = $this->request->getPost("jk");
+        $cabor = $this->users['departemen'];
+        $query = $this->db->table("indikator_teknik")->where('cabor', $cabor)->where('jenis_kelamin', $jk)->where('kategori', $periode)->get()->getResultObject();
+        return $this->response->setJSON($query);
     }
 
     public function detail_simpan_teknik()

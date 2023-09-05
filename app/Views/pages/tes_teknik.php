@@ -21,10 +21,10 @@
                         <div class="card-action card-tabs mr-4 mt-3 mt-sm-0 mb-3">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#All" role="tab" aria-selected="true">Priview</a>
+                                    <a class="nav-link active" data-toggle="tab" href="#All" role="tab" aria-selected="true">Priview Performance</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link " data-toggle="tab" href="#Unifinshed" role="tab" aria-selected="false">Inputan</a>
+                                    <a class="nav-link " data-toggle="tab" href="#Unifinshed" role="tab" aria-selected="false">Form Inputan Penilaian</a>
                                 </li>
                             </ul>
                         </div>
@@ -61,6 +61,10 @@
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="form-group">
+                                        <label class="col-form-label">Jenis Kelamin</label>
+                                        <input type="text" class="form-control" id="jk_teknik" readonly>
+                                    </div>
                                 </div>
                                 <div class="col-lg-6">
                                     <div class="form-group">
@@ -86,15 +90,9 @@
                                     <div class="form-group">
                                         <label class="col-form-label">Pemilihan Indikator</label>
                                         <div class="input-group">
+                                            <select name="periode_teknik" id="periode_teknik" class="form-control" onchange="CekIndikatorTeknik()">
+                                            </select>
                                             <select name="indikator_teknik" id="indikator_teknik" class="form-control" onchange="ChangeIndikatorTeknik()">
-                                                <option value="">Pilih Indikator</option>
-                                                <?php if (count($indikator_teknik) > 0) { ?>
-                                                    <?php foreach ($indikator_teknik as $row) : ?>
-                                                        <option value="<?= $row->benchmark ?>"><?= $row->indikator ?></option>
-                                                    <?php endforeach;  ?>
-                                                <?php } else { ?>
-
-                                                <?php } ?>
                                             </select>
                                             <input type="text" class="form-control" name="benchmark" id="benchmark" readonly placeholder="Nilai Benchmark">
                                         </div>
@@ -236,7 +234,7 @@
                                             <?php foreach ($atlet as $row) : ?>
                                                 <tr>
                                                     <td>
-                                                        <button type="button" class="btn btn-primary btn-sm" onclick="pilih_atlet_tes_teknik('<?= $row->no_atlet ?>','<?= $row->nama ?>','<?= $row->tempat_lahir ?>', '<?= $row->tanggal_lahir ?>')">
+                                                        <button type="button" class="btn btn-primary btn-sm" onclick="pilih_atlet_tes_teknik('<?= $row->no_atlet ?>','<?= $row->nama ?>','<?= $row->tempat_lahir ?>', '<?= $row->tanggal_lahir ?>', '<?= $row->jenis_kelamin ?>')">
                                                             Pilih
                                                         </button>
                                                     </td>
@@ -296,6 +294,14 @@
                             <div class="row mb-2">
                                 <div class="col-sm-5 col-6">
                                     <h5 class="f-w-500">Nama Lengkap <span class="pull-right">:</span>
+                                    </h5>
+                                </div>
+                                <div class="7 col-6"><span id="nama_show">-</span>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col-sm-5 col-6">
+                                    <h5 class="f-w-500">Jenis Kelamin <span class="pull-right">:</span>
                                     </h5>
                                 </div>
                                 <div class="7 col-6"><span id="nama_show">-</span>

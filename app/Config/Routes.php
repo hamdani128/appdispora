@@ -92,6 +92,9 @@ $routes->group('', ['filter' => 'AuthCheck'], function ($routes) {
     $routes->post('/tes_teknik/delete', 'Pelatih1Controller::delete_teknik');
     $routes->get('/tes_teknik/detail_show', 'Pelatih1Controller::detail_show_teknik');
     $routes->get('/tes_teknik/detail_show_list', 'Pelatih1Controller::detail_show_teknik_list');
+    $routes->get('/tes_teknik/get_periode', 'Pelatih1Controller::get_periode');
+    $routes->post('/tes_teknik/get_benchmark', 'Pelatih1Controller::get_benchmark');
+
 
     $routes->get('/tes_fisik', 'Pelatih1Controller::view_fisik');
     $routes->post('/tes_fisik/simpan', 'Pelatih1Controller::simpan_fisik');
