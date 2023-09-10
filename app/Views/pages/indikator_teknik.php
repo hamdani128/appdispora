@@ -21,7 +21,7 @@
                     <div class="col-md-8 text-right">
                         <button class="btn btn-md btn-dark" onclick="show_kategori_teknik_indikator()">
                             <i class="fa fa-folder"></i>
-                            Kategori Data
+                            Kategori Event
                         </button>
                     </div>
                 </div>
@@ -30,12 +30,10 @@
                         <div class="default-tab">
                             <ul class="nav nav-tabs" role="tablist">
                                 <li class="nav-item">
-                                    <a class="nav-link active" data-toggle="tab" href="#home"><i
-                                            class="la la-user mr-2"></i> Laki - Laki</a>
+                                    <a class="nav-link active" data-toggle="tab" href="#home"><i class="la la-user mr-2"></i> Laki - Laki</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" data-toggle="tab" href="#profile"><i
-                                            class="la la-user mr-2"></i> Perempuan</a>
+                                    <a class="nav-link" data-toggle="tab" href="#profile"><i class="la la-user mr-2"></i> Perempuan</a>
                                 </li>
 
                             </ul>
@@ -58,36 +56,34 @@
                                                 <tbody>
                                                     <?php if (count($indikator) > 0) {
                                                         $no = 1; ?>
-                                                    <?php foreach ($indikator as $row) : ?>
-                                                    <?php if ($row->jenis_kelamin == "Laki-Laki") { ?>
-                                                    <tr>
-                                                        <td><?= $no++ ?></td>
-                                                        <td><?= $row->indikator ?></td>
-                                                        <td><?= $row->benchmark ?></td>
-                                                        <td><?= $row->jenis_kelamin ?></td>
-                                                        <td><?= $row->kategori ?></td>
-                                                        <td><?= $row->periode ?></td>
-                                                        <td>
-                                                            <a href="javascript:void(0)" class="btn btn-sm btn-info"
-                                                                onclick="update_show_teknik('<?= $row->id ?>')">
-                                                                <i class="fa fa-edit"></i>
-                                                            </a>
-                                                            <a href="javascript:void(0)" class="btn btn-sm btn-danger"
-                                                                onclick="delete_indikator_teknik('<?= $row->id ?>', '<?= $row->indikator ?>')">
-                                                                <i class="fa fa-trash"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    <?php } ?>
-                                                    <?php endforeach; ?>
+                                                        <?php foreach ($indikator as $row) : ?>
+                                                            <?php if ($row->jenis_kelamin == "Laki-Laki") { ?>
+                                                                <tr>
+                                                                    <td><?= $no++ ?></td>
+                                                                    <td><?= $row->indikator ?></td>
+                                                                    <td><?= $row->benchmark ?></td>
+                                                                    <td><?= $row->jenis_kelamin ?></td>
+                                                                    <td><?= $row->kategori ?></td>
+                                                                    <td><?= $row->periode ?></td>
+                                                                    <td>
+                                                                        <a href="javascript:void(0)" class="btn btn-sm btn-info" onclick="update_show_teknik('<?= $row->id ?>')">
+                                                                            <i class="fa fa-edit"></i>
+                                                                        </a>
+                                                                        <a href="javascript:void(0)" class="btn btn-sm btn-danger" onclick="delete_indikator_teknik('<?= $row->id ?>', '<?= $row->indikator ?>')">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            <?php } ?>
+                                                        <?php endforeach; ?>
                                                     <?php } else { ?>
-                                                    <tr>
-                                                        <td colspan="5">
-                                                            <center>
-                                                                <h4>Data Kosong</h4>
-                                                            </center>
-                                                        </td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td colspan="5">
+                                                                <center>
+                                                                    <h4>Data Kosong</h4>
+                                                                </center>
+                                                            </td>
+                                                        </tr>
                                                     <?php } ?>
                                                 </tbody>
                                             </table>
@@ -112,36 +108,34 @@
                                                 <tbody>
                                                     <?php if (count($indikator) > 0) {
                                                         $no = 1; ?>
-                                                    <?php foreach ($indikator as $row) : ?>
-                                                    <?php if ($row->jenis_kelamin == "Perempuan") { ?>
-                                                    <tr>
-                                                        <td><?= $no++ ?></td>
-                                                        <td><?= $row->indikator ?></td>
-                                                        <td><?= $row->benchmark ?></td>
-                                                        <td><?= $row->jenis_kelamin ?></td>
-                                                        <td><?= $row->kategori ?></td>
-                                                        <td><?= $row->periode ?></td>
-                                                        <td>
-                                                            <a href="javascript:void(0)" class="btn btn-sm btn-info"
-                                                                onclick="update_show_teknik('<?= $row->id ?>')">
-                                                                <i class="fa fa-edit"></i>
-                                                            </a>
-                                                            <a href="javascript:void(0)" class="btn btn-sm btn-danger"
-                                                                onclick="delete_indikator_teknik('<?= $row->id ?>', '<?= $row->indikator ?>')">
-                                                                <i class="fa fa-trash"></i>
-                                                            </a>
-                                                        </td>
-                                                    </tr>
-                                                    <?php } ?>
-                                                    <?php endforeach; ?>
+                                                        <?php foreach ($indikator as $row) : ?>
+                                                            <?php if ($row->jenis_kelamin == "Perempuan") { ?>
+                                                                <tr>
+                                                                    <td><?= $no++ ?></td>
+                                                                    <td><?= $row->indikator ?></td>
+                                                                    <td><?= $row->benchmark ?></td>
+                                                                    <td><?= $row->jenis_kelamin ?></td>
+                                                                    <td><?= $row->kategori ?></td>
+                                                                    <td><?= $row->periode ?></td>
+                                                                    <td>
+                                                                        <a href="javascript:void(0)" class="btn btn-sm btn-info" onclick="update_show_teknik('<?= $row->id ?>')">
+                                                                            <i class="fa fa-edit"></i>
+                                                                        </a>
+                                                                        <a href="javascript:void(0)" class="btn btn-sm btn-danger" onclick="delete_indikator_teknik('<?= $row->id ?>', '<?= $row->indikator ?>')">
+                                                                            <i class="fa fa-trash"></i>
+                                                                        </a>
+                                                                    </td>
+                                                                </tr>
+                                                            <?php } ?>
+                                                        <?php endforeach; ?>
                                                     <?php } else { ?>
-                                                    <tr>
-                                                        <td colspan="5">
-                                                            <center>
-                                                                <h4>Data Kosong</h4>
-                                                            </center>
-                                                        </td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td colspan="5">
+                                                                <center>
+                                                                    <h4>Data Kosong</h4>
+                                                                </center>
+                                                            </td>
+                                                        </tr>
                                                     <?php } ?>
                                                 </tbody>
                                             </table>
@@ -174,8 +168,7 @@
                     <div class="col-md-12">
                         <div class="form-group">
                             <label for="">Indikator Tes</label>
-                            <input type="text" class="form-control" name="indikator" id="indikator"
-                                placeholder="Nama Indikator">
+                            <input type="text" class="form-control" name="indikator" id="indikator" placeholder="Nama Indikator">
                         </div>
                         <div class="form-group">
                             <label for="">Nilai Bencmark</label>
@@ -197,8 +190,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Periode</label>
-                            <input type="text" name="periode" id="periode" class="form-control"
-                                placeholder="Masukkan Periode">
+                            <input type="text" name="periode" id="periode" class="form-control" placeholder="Masukkan Periode">
                         </div>
                     </div>
                 </div>
@@ -229,8 +221,7 @@
                         </div>
                         <div class="form-group">
                             <label for="">Indikator Tes</label>
-                            <input type="text" class="form-control" name="indikator_update" id="indikator_update"
-                                placeholder="Nama Indikator">
+                            <input type="text" class="form-control" name="indikator_update" id="indikator_update" placeholder="Nama Indikator">
                         </div>
                         <div class="form-group">
                             <label for="">Nilai Bencmark</label>
@@ -252,16 +243,14 @@
                         </div>
                         <div class="form-group">
                             <label for="">Periode</label>
-                            <input type="text" name="periode_update" id="periode_update" class="form-control"
-                                placeholder="Masukkan Periode">
+                            <input type="text" name="periode_update" id="periode_update" class="form-control" placeholder="Masukkan Periode">
                         </div>
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="button" class="btn btn-warning" onclick="update_indikator_teknik()"><i
-                        class="fa fa-edit"></i> Update Data</button>
+                <button type="button" class="btn btn-warning" onclick="update_indikator_teknik()"><i class="fa fa-edit"></i> Update Data</button>
             </div>
         </div>
     </div>
@@ -315,8 +304,7 @@
                                                             <td>{{post.kategori}}</td>
                                                             <td>
                                                                 <div class="input-group">
-                                                                    <button class="btn btn-md btn-danger"
-                                                                        ng-click="delete(post)">
+                                                                    <button class="btn btn-md btn-danger" ng-click="delete(post)">
                                                                         <i class="fa fa-trash"></i>
                                                                     </button>
                                                                 </div>
@@ -337,12 +325,10 @@
                                             <form action="">
                                                 <div class="form-group">
                                                     <label for="">Kategori</label>
-                                                    <textarea rows="3" cols="3" class="form-control" name="kategori"
-                                                        ng-model="text_kategori" id="kategori"></textarea>
+                                                    <textarea rows="3" cols="3" class="form-control" name="kategori" ng-model="text_kategori" id="kategori"></textarea>
                                                 </div>
                                                 <div class="form-group">
-                                                    <button type="button" class="btn btn-md btn-dark"
-                                                        ng-click="insertkategori()">
+                                                    <button type="button" class="btn btn-md btn-dark" ng-click="insertkategori()">
                                                         <i class="fa fa-plus"></i>
                                                         Submit
                                                     </button>

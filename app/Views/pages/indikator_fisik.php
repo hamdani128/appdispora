@@ -22,7 +22,7 @@
                     <div class="col-md-6 text-right">
                         <button class="btn btn-md btn-dark" onclick="show_kategori_fisik_indikator()">
                             <i class="fa fa-folder"></i>
-                            Kategori Data
+                            Kategori Event
                         </button>
                     </div>
                 </div>
